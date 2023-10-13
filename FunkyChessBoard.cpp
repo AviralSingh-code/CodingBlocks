@@ -37,7 +37,7 @@ void knight(int x,int y,int jump)
             grid[xx][yy]=0; //as we are standing on this grid now so it is valid already so we put 0 as done previously
             //when knight gets called it will go up again and will keep on checking for a valid path from the destination 
             knight(xx,yy,jump+1);   //calling recursion from the location where we have reached unless we either get 0 or we move out of the grid
-            grid[xx][yy]=1; //so that if we now reach this location using some other path then we have to consider this so we have to revert thr change made.
+            grid[xx][yy]=1; //so that if we now reach this location using some other path then we have to consider this so we have to revert the change made.
         }
     }
 }

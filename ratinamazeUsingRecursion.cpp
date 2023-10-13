@@ -28,7 +28,7 @@ bool ratinamaze(char maze[][10],int i,int j,int m,int n)
         bool ans=ratinamaze(maze,i,j+1,m,n);
         if(ans==true)
         {
-             return true;
+            return true;
         }
     }
 

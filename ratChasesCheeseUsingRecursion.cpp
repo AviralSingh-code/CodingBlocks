@@ -50,19 +50,19 @@ bool ratinamaze(char maze[10][10],int i,int j,int m,int n)
     if(i>0&&visited[i-1][j]!=1)
     {
         bool ans=ratinamaze(maze,i-1,j,m,n);
-            if(ans==true)
-            {
-                return true;
-            }
+        if(ans==true)
+        {
+            return true;
+        }
     }
 
     if(j>0&&visited[i][j-1]!=1)
     {
         bool ans=ratinamaze(maze,i,j-1,m,n);
-            if(ans==true)
-            {
-                return true;
-            }
+        if(ans==true)
+        {
+            return true;
+        }
     }
 
     sol[i][j]=0;

@@ -19,7 +19,7 @@ int optimalgame(int i,int j)
     //case 2
     /*This case is when we pick the last element then comes the turn of the opponent 
     the opponent picks up the element that leaves minimum value for us to pick so that is why we choose min function*/
-    long long int secondPick=coin[j]+min(optimalgame(i,j-2),optimalgame(i+1,j-1));
+    long long int secondPick = coin[j]+min(optimalgame(i,j-2),optimalgame(i+1,j-1));
 
     return max(firstPick,secondPick);       /*we return the max of whether we should choose the first element or the last element to get
                                             the maximum value for us to win*/

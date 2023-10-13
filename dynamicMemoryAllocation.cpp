@@ -38,7 +38,7 @@ int main()
 
     int n;
     cin>>n;
-    int *app=function(n);       //atoring the returned value we need a pointer
+    int *app=function(n);       //storing the returned value we need a pointer
     for(int i=0;i<n;i++)
     {
         cout<<app[i]<<" ";

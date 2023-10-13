@@ -25,9 +25,7 @@ void reverse(stack<int>&s)
     {
         return;
     }
-
-
-
+    
     //recursive case
     // eg if we had stack 5->4->3->2->1
     //te=5

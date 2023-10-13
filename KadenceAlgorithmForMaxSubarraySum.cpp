@@ -10,7 +10,7 @@ int main()                              //To get the max subarray sum
    cin>>n;
    int currSum=0;
    int maxSum=0;
-   for(int i=0;i<n;i++)                         //This algorithm fails when all the elemnets in the array are negative
+   for(int i=0;i<n;i++)         //This algorithm fails when all the elemnets in the array are negative
    {
        cin>>arr[i];
    }

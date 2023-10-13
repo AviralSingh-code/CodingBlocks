@@ -6,6 +6,38 @@
 #include<climits>
 #include<set> 
 using namespace std;
+//---------------------------------------------
+//TC O(ElogV)
+vector <int> dijkstra(int V, vector<vector<int>> adj[], int S)
+    {
+        priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
+        vector<int> dist(V, 1e9);
+        
+        dist[S] = 0;
+        pq.push({0,S});
+        
+        while(!pq.empty())
+        {
+            int distanceNode = pq.top().first;
+            int Node = pq.top().second;
+            pq.pop();
+            
+            for(auto nbr : adj[Node])
+            {
+                int distChild = nbr[1];
+                int childNode = nbr[0];
+                
+                if(distanceNode + distChild < dist[childNode])
+                {
+                    dist[childNode] = distanceNode + distChild;
+                    pq.push({dist[childNode], childNode});
+                }
+            }
+        }
+        return dist;
+    }
+//---------------------------------------------
+
 // time complexity O((V+E)logV)
 template<typename T>
 class graph{

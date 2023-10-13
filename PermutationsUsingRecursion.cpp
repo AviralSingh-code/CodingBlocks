@@ -1,6 +1,32 @@
 #include<iostream>
 #include<algorithm>
 using namespace std;
+
+//----------------------------------
+//TC O(N * N!) --> N! permutations and N to print them
+//SC O(N) --> recursion stack space
+void permute(string& a, int l, int r)
+{
+    // Base case
+    if (l == r)
+        cout << a << endl;
+    else {
+        // Permutations made
+        for (int i = l; i <= r; i++) {
+ 
+            // Swapping done
+            swap(a[l], a[i]);
+ 
+            // Recursion called
+            permute(a, l + 1, r);
+ 
+            // backtrack
+            swap(a[l], a[i]);
+        }
+    }
+}
+//----------------------------------
+
 void permutation(char *arr,int i)
 {
     //base case
