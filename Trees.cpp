@@ -287,8 +287,9 @@ node*buildTreeLevelWise()
             x->right->data=rightData; //to put the value of the right node in place
             q.push(x->right);  //it is added to the queue so that we can find it's children
         }
-        }
-        return root;
+    }
+    
+    return root;
 }
 
 

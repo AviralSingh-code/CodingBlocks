@@ -6,6 +6,50 @@
 #include<climits>
 #include<set> 
 using namespace std;
+//---------------------------------------------------------
+//tc = O[V * (log(heap size) + ne * log(heap size))]  ne is just a variable
+//   = O(V * log(heap size) * (ne + 1))
+//   = O(V * log(heap size) * (V))
+//   = O(V^2 * log(heap size))
+//   = O(V^2 * log(V^2)) heap size = V^2 for a dense graph --> see this :- https://www.youtube.com/watch?v=3dINsjyfooY 
+//   = O(V^2 * 2 * log(V))
+//   = O(E * 2 * log(V)) E = V^2 as every node is connected to every other node for a dense graph V*(V-1) = V^2 approx.
+//   = O(E * log(V))
+class Solution
+{
+	public:
+	//Function to find the shortest distance of all the vertices
+    //from the source vertex S.
+    vector <int> dijkstra(int V, vector<vector<int>> adj[], int S)
+    {
+        priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
+        vector<int> dist(V, 1e9);
+        
+        dist[S] = 0;
+        pq.push({0,S});
+        
+        while(!pq.empty())  //O(V)
+        {
+            int distanceNode = pq.top().first;
+            int Node = pq.top().second;
+            pq.pop();                       //log(heap size)
+            
+            for(auto nbr : adj[Node]) //ne = V-1 --> for dense graph
+            {
+                int distChild = nbr[1];
+                int childNode = nbr[0];
+                
+                if(distanceNode + distChild < dist[childNode])
+                {
+                    dist[childNode] = distanceNode + distChild;
+                    pq.push({dist[childNode], childNode});   //log(head size)
+                }
+            }
+        }
+        return dist;
+    }
+};
+//---------------------------------------------------------
 template<typename T>
 class graph{
     unordered_map<T,list<pair<T,int> > > h;     //this map is used for storing the name of the city and the list stores a pair of the other city and the distance in the type int

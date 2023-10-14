@@ -1,6 +1,10 @@
 #include<iostream>
 #include<cstring>
 using namespace std;
+//tc = O(2^n)
+/*
+equation T(n-1) + T(n-1) + 1
+*/
 void toh(int n , char src , char helper , char dest)
 {
     //base case
