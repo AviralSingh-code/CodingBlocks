@@ -13,7 +13,7 @@ int wineMaximumProfit(int l,int r,int *price,int day)
 
 
     //recursive case
-    int op1=price[l]*day+wineMaximumProfit(l+1,r,price,day+1);    //for taking firat element
+    int op1=price[l]*day+wineMaximumProfit(l+1,r,price,day+1);    //for taking first element
     
 
     int op2=price[r]*day+wineMaximumProfit(l,r-1,price,day+1);
